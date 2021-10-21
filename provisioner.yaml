@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filestorage-provisioner
+  labels:
+    app: filestorage-provisioner
+  # replace with namespace where provisioner is deployed
+  namespace: filestorage
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: filestorage-provisioner
+  template:
+    metadata:
+      labels:
+        app: filestorage-provisioner
+    spec:
+      serviceAccountName: nfs-client-provisioner
+      containers:
+        - name: filestorage-provisioner
+          image: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+          volumeMounts:
+            - name: filestorage-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: cloudstorage/filestorage-provisioner
+            - name: NFS_SERVER
+              value: ${NFSSERVER}
+            - name: NFS_PATH
+              value: ${NFSPATH}
+
+      volumes:
+        - name: filestorage-root
+          nfs:
+            server: ${NFSSERVER}
+            path: ${NFSPATH}
