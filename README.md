@@ -18,7 +18,7 @@ oc adm policy add-scc-to-user hostmount-anyuid system:serviceaccount:$NAMESPACE:
 
 2. Identify your Cluster, Data Center and the Region.
 ```shell
-export cluster=c5oqul2d0auj17gsciv0
+export cluster=<your cluster ID>
 ```
 ```shell
 export dc=$(ibmcloud oc cluster get --cluster ${cluster} --output json | jq -r '.dataCenter')
