@@ -27,7 +27,7 @@ export dc=$(ibmcloud oc cluster get --cluster ${cluster} --output json | jq -r '
 export region=$(ibmcloud oc cluster get --cluster ${cluster} --output json | jq -r '.region')
 ```
 
-3. Place an order for a new File storage device (default is 1TB disk space).
+3. Place an order for a new File storage device (default is 1TB disk space. Change it if you require more).
 ```shell
 envsubst < filepvc.yaml | oc create -f -
 ```
