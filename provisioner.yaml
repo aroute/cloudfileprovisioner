@@ -21,7 +21,8 @@ spec:
       serviceAccountName: nfs-client-provisioner
       containers:
         - name: filestorage-provisioner
-          image: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+#          image: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+          image: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
           volumeMounts:
             - name: filestorage-root
               mountPath: /persistentvolumes
