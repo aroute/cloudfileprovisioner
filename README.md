@@ -1,4 +1,8 @@
-# IBM Cloud File Storage Provisioner
+# IBM Cloud File Storage Provisioner - Automatic process
+
+See `./filestorage.sh`.
+
+# IBM Cloud File Storage Provisioner - Manual process
 
 This NFS cloud file provisioner for OpenShift will help in conserving the number of Cloud File storage devices it takes to deploy Cloud Pak for Data. Instead of auto-provisioning multiple File devices for individual PVCs, you can use this provisioner to provision one big device and then use the storageclass to provision multiple PVCs.
 
