@@ -2,13 +2,13 @@
 ##
 # This script uses Google's NFS External Provisioner for Kubernetes. 
 # Ref: https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
-# The provisioner is for Red Hat OpenShift Container Platform managed by IBM Cloud.
-# The script will automate an order of a single storage device from IBM Cloud File service. 
+# The provisioner script is for Red Hat OpenShift Container Platform managed by IBM Cloud.
+# The script will request and create an order of a single storage device from IBM Cloud File service. 
 # Ref: https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-getting-started
-# The order is of 1TiB File storage device (gold category). 
+# The request is of 1TiB File storage device (gold category). 
 # The 1TiB is a hardcoded value. 
 # DO NOT run this script if you wish to manipulate the pre-defined storage size.
-# The script creates a storageClass called 'cloudfilestorage' 
+# The script creates a StorageClass called 'cloudfilestorage'.
 # This StorageClass is capable of RWX and RWO modes.
 # Please ensure you are first logged in to your IBM Cloud account (ibmcloud login....)
 # Ensure you are also logged in to your OpenShift cluster (oc login...)
